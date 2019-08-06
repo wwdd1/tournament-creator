@@ -12,6 +12,7 @@
 		7648A2F822F1F1060041B1F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7648A2F622F1F1060041B1F1 /* Main.storyboard */; };
 		7648A2FA22F1F1080041B1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7648A2F922F1F1080041B1F1 /* Assets.xcassets */; };
 		7648A2FD22F1F1080041B1F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7648A2FB22F1F1080041B1F1 /* LaunchScreen.storyboard */; };
+		76547C2E22F97925008D0827 /* TounamentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76547C2D22F97925008D0827 /* TounamentDetailsViewController.swift */; };
 		76B454D922F49F4E0099FD01 /* ParticipantTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B454D822F49F4E0099FD01 /* ParticipantTeamCell.swift */; };
 		76B454DB22F4B7550099FD01 /* ParticipantEmptyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B454DA22F4B7550099FD01 /* ParticipantEmptyTableCell.swift */; };
 		76C8399722F8298E0056FD72 /* KeyboardNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C8399622F8298E0056FD72 /* KeyboardNotifier.swift */; };
@@ -27,6 +28,7 @@
 		7648A2F922F1F1080041B1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7648A2FC22F1F1080041B1F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7648A2FE22F1F1080041B1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76547C2D22F97925008D0827 /* TounamentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TounamentDetailsViewController.swift; sourceTree = "<group>"; };
 		76B454D822F49F4E0099FD01 /* ParticipantTeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantTeamCell.swift; sourceTree = "<group>"; };
 		76B454DA22F4B7550099FD01 /* ParticipantEmptyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantEmptyTableCell.swift; sourceTree = "<group>"; };
 		76C8399622F8298E0056FD72 /* KeyboardNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotifier.swift; sourceTree = "<group>"; };
@@ -64,10 +66,10 @@
 		7648A2F122F1F1060041B1F1 /* Concentration */ = {
 			isa = PBXGroup;
 			children = (
+				76547C2A22F97899008D0827 /* Views */,
 				76C8399B22F87CC00056FD72 /* Classes */,
 				76C8399822F87C240056FD72 /* Store */,
 				7648A2F222F1F1060041B1F1 /* AppDelegate.swift */,
-				7648A2F422F1F1060041B1F1 /* ViewController.swift */,
 				7648A2F622F1F1060041B1F1 /* Main.storyboard */,
 				76B454D822F49F4E0099FD01 /* ParticipantTeamCell.swift */,
 				76B454DA22F4B7550099FD01 /* ParticipantEmptyTableCell.swift */,
@@ -77,6 +79,15 @@
 				76C8399622F8298E0056FD72 /* KeyboardNotifier.swift */,
 			);
 			path = Concentration;
+			sourceTree = "<group>";
+		};
+		76547C2A22F97899008D0827 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7648A2F422F1F1060041B1F1 /* ViewController.swift */,
+				76547C2D22F97925008D0827 /* TounamentDetailsViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		76C8399822F87C240056FD72 /* Store */ = {
@@ -173,6 +184,7 @@
 				76C8399A22F87C650056FD72 /* Store.swift in Sources */,
 				7648A2F322F1F1060041B1F1 /* AppDelegate.swift in Sources */,
 				76B454D922F49F4E0099FD01 /* ParticipantTeamCell.swift in Sources */,
+				76547C2E22F97925008D0827 /* TounamentDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

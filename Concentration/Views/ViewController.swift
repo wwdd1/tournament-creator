@@ -23,6 +23,8 @@ class ViewController: UIViewController, IKeyboardNotifier {
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardNotifier = KeyboardNotifier(delegate: self)
+        addTeamTextField.autocorrectionType = .no
+        addTeamTextField.becomeFirstResponder()
     }
     
     deinit {
@@ -35,6 +37,16 @@ class ViewController: UIViewController, IKeyboardNotifier {
         let team = Team(withId: UUID().uuidString)
         team.name = trimmed
         participantTeams.insert(team, at: 0)
+        tableView.reloadData()
+    }
+    
+    func removeParticipant(teamId: String) {
+        guard let teamIndex: Int = self.participantTeams.firstIndex(where: { (team: Team) -> Bool in
+            return team.id == teamId
+        }) else {
+            return
+        }
+        self.participantTeams.remove(at: teamIndex)
         tableView.reloadData()
     }
     
@@ -52,6 +64,24 @@ class ViewController: UIViewController, IKeyboardNotifier {
             tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: keyboardRect.height).isActive = true
         }
     }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if participantTeams.count > 1 {
+            return true
+        }
+        let alert = UIAlertController(title: "", message: "You should add at least 2 teams to continue.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+        return false
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tournamentDetailsViewController = segue.destination as! TounamentDetailsViewController
+        tournamentDetailsViewController.teams = participantTeams
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+    }
 }
 
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -68,7 +98,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let index = indexPath.row
             let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantTeamCell") as! ParticipantTeamCell;
             
-            cell.teamNameLabel.text = participantTeams[index].name
+            let team = participantTeams[index]
+            cell.teamNameLabel.text = team.name
+            cell.actionRemove = {
+                print("tapped to remove button for team id: \(team.id!)");
+                self.removeParticipant(teamId: team.id!)
+            }
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ParticipantsEmptyCell") as! ParticipantEmptyTableCell;

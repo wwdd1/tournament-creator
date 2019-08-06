@@ -9,7 +9,10 @@
 import UIKit
 
 class ParticipantTeamCell: UITableViewCell {
-
-    @IBOutlet weak var teamNameLabel: UILabel!
+    var actionRemove: (() -> Void)? = nil
     
+    @IBOutlet weak var teamNameLabel: UILabel!
+    @IBAction func onTapRemove(_ sender: UIButton) {
+        actionRemove?()
+    }
 }

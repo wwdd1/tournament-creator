@@ -59,6 +59,9 @@
                                                         <constraint firstAttribute="width" constant="60" id="RjY-mv-J3N"/>
                                                     </constraints>
                                                     <state key="normal" title="Remove"/>
+                                                    <connections>
+                                                        <action selector="onTapRemove:" destination="ANN-Nj-UfR" eventType="touchUpInside" id="PxJ-3W-LUY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -128,7 +131,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Tournament Creator" id="MX5-YN-Gqv">
-                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="Vod-KC-J7P"/>
+                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="Vod-KC-J7P">
+                            <connections>
+                                <segue destination="opp-LQ-3uS" kind="show" id="6ts-sk-Xg1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addTeamTextField" destination="EEp-ZH-UCv" id="FdN-iR-TXg"/>
@@ -138,6 +145,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="975.20000000000005" y="17.733990147783253"/>
+        </scene>
+        <!--Tounament Details View Controller-->
+        <scene sceneID="aBO-Bq-sTI">
+            <objects>
+                <viewController id="opp-LQ-3uS" customClass="TounamentDetailsViewController" customModule="Concentration" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S24-lQ-rdd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3bV-Iv-YFD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s8G-9R-75P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2052" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dbZ-wc-WyV">
